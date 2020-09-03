@@ -1,7 +1,7 @@
 #ifndef PLATFORMER_ENTITY_MANAGER_H
 #define PLATFORMER_ENTITY_MANAGER_H
 
-typedef struct entity_manager_s {
+typedef struct {
 	void (* test)(void);
 } entity_manager_t;
 

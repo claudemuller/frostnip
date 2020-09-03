@@ -4,7 +4,7 @@
 #include "asset_manager.h"
 #include "entity_manager.h"
 
-typedef struct game_s {
+typedef struct {
 	entity_manager_t entity_manager;
 	asset_manager_t asset_manager;
 } game_t;

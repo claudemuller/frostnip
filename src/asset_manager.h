@@ -3,7 +3,7 @@
 
 #include "entity_manager.h"
 
-typedef struct asset_manager_s {
+typedef struct {
 	entity_manager_t* entity_manager;
 //	 <map> textures;
 //	 <map> fonts;

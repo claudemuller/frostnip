@@ -1,7 +1,7 @@
 #ifndef PLATFORMER_ANIMATION_H
 #define PLATFORMER_ANIMATION_H
 
-typedef struct animation_s {
+typedef struct {
 	unsigned int index;
 	unsigned int num_frames;
 	unsigned int animation_speed;
