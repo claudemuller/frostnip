@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 
 typedef struct {
-	void (* update)(void);
+	void (* update)(float);
 	void (* render)(void);
 	void (* add)(SDL_Rect entity);
 
@@ -12,7 +12,7 @@ typedef struct {
 } entity_manager_t;
 
 entity_manager_t new_entity_manager(void);
-void entity_manager_update(void);
+void entity_manager_update(float);
 void entity_manager_render(void);
 void entity_manager_add(SDL_Rect entity);
 

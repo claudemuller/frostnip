@@ -70,8 +70,11 @@ void game_update(void) {
 	if (DEBUG) {
 		printf("FPS: %d\n", game.get_fps());
 	}
+	// Difference in ticks from last frame converted to seconds.
+	// delta_time becomes a factor that changes "..moves pixels per frame" to "..moves pixels per second"
+	float delta_time = (float)(SDL_GetTicks() - game.last_frame_time) / 1000.0f;
 
-	game.entity_manager.update();
+	game.entity_manager.update(delta_time);
 }
 
 void game_render(void) {
