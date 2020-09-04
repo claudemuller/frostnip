@@ -65,7 +65,15 @@ void game_update(void) {
 	game.waited_for = SDL_GetTicks();
 	// Waste time/sleep until the frame target time is reached.
 	// While A hasn't passed B i.e. the time now hasn't passed the last frame + frame target time.
-	while (!SDL_TICKS_PASSED(SDL_GetTicks(), game.last_frame_time + FRAME_TARGET_TIME));
+	// naive implementation (doesn't yield to OS)
+	//while (!SDL_TICKS_PASSED(SDL_GetTicks(), game.last_frame_time + FRAME_TARGET_TIME));
+
+	// Sleep the execution until the target time in milliseconds is reached.
+	int time_to_wait = FRAME_TARGET_TIME - (SDL_GetTicks() - game.last_frame_time);
+	// Only call delay if processing is too fast in the current frame.
+	if (time_to_wait > 0 && time_to_wait <= FRAME_TARGET_TIME) {
+		SDL_Delay(time_to_wait);
+	}
 	game.last_frame_time = SDL_GetTicks();
 	if (DEBUG) {
 		printf("FPS: %d\n", game.get_fps());
