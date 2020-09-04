@@ -30,6 +30,15 @@ game_t new_game() {
 
 void game_setup(void) {
 	init_window(&game);
+
+	// Add entities.
+	SDL_Rect rect = {
+			.x = 100,
+			.y = 100,
+			.w = 200,
+			.h = 200,
+	};
+	game.entity_manager.add(rect);
 }
 
 void game_process_input(void) {
@@ -55,14 +64,14 @@ void game_update(void) {
 
 void game_render(void) {
 	// Set colour.
-	SDL_SetRenderDrawColor(game.renderer, 21, 21, 21, 255);
+	SDL_SetRenderDrawColor(game.renderer, 0, 0, 0, 255);
 	// Clear renderer.
 	SDL_RenderClear(game.renderer);
 
 	// Renderer entities.
 	game.entity_manager.render();
 
-	// Swap back buffer
+	// Swap back buffer.
 	SDL_RenderPresent(game.renderer);
 }
 

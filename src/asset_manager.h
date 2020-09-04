@@ -4,11 +4,11 @@
 #include "entity_manager.h"
 
 typedef struct {
+	void (* clear_data)(void);
+
 	entity_manager_t* entity_manager;
 //	 <map> textures;
 //	 <map> fonts;
-
-	void (* clear_data)(void);
 } asset_manager_t;
 
 asset_manager_t new_asset_manager(entity_manager_t*);

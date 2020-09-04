@@ -7,8 +7,12 @@
 #include "entity_manager.h"
 
 typedef struct {
-	entity_manager_t entity_manager;
-	asset_manager_t asset_manager;
+	void (* setup)(void);
+	void (* process_input)(void);
+	void (* update)(void);
+	void (* render)(void);
+	void (* cleanup)(void);
+
 	SDL_Renderer* renderer;
 	SDL_Window* window;
 	bool running;
@@ -16,12 +20,8 @@ typedef struct {
 	int window_height;
 	uint32_t flags;
 	bool debug;
-
-	void (* setup)(void);
-	void (* process_input)(void);
-	void (* update)(void);
-	void (* render)(void);
-	void (* cleanup)(void);
+	asset_manager_t asset_manager;
+	entity_manager_t entity_manager;
 } game_t;
 
 extern game_t game;

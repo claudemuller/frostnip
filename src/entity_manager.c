@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <SDL2/SDL.h>
 #include "entity_manager.h"
 #include "game.h"
 
@@ -14,21 +13,25 @@ void entity_manager_render(void) {
 		printf("rendering entities...\n");
 	}
 
-	SDL_Rect rect = {
-			.x = 100,
-			.y = 100,
-			.w = 200,
-			.h = 200,
-	};
 	SDL_SetRenderDrawColor(game.renderer, 255, 255, 255, 255);
-	SDL_RenderFillRect(game.renderer, &rect);
+	for (int i = 0; i < 1; i++) {
+		SDL_Rect rect = game.entity_manager.entities[i];
+		if (game.debug) {
+			printf("entity: x - %d, y - %d, w - %d, h - %d\n", rect.x, rect.y, rect.w, rect.h);
+		}
+		SDL_RenderFillRect(game.renderer, &rect);
+	}
+}
+
+void entity_manager_add(SDL_Rect entity) {
+	game.entity_manager.entities[0] = entity;
 }
 
 entity_manager_t new_entity_manager(void) {
 	return (entity_manager_t) {
 		.update = entity_manager_update,
-		.render = entity_manager_render
-
+		.render = entity_manager_render,
+		.add = entity_manager_add
 	};
 }
 
