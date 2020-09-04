@@ -12,7 +12,6 @@ typedef struct {
 } asset_manager_t;
 
 asset_manager_t new_asset_manager(entity_manager_t*);
-
 void asset_manager_clear_data(void);
 
 //void addTexture(std::string textureId, const char* filePath);

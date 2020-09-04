@@ -1,5 +1,4 @@
 #include "entity_manager.h"
-#include <stdio.h>
 
 void entity_manager_test(void) {
 

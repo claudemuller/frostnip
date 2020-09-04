@@ -1,29 +1,16 @@
-#include <SDL2/SDL.h>
-#include "constants.h"
 #include "game.h"
-#include "entity_manager.h"
-#include "asset_manager.h"
 
 int main(int argc, char* argv[]) {
-	printf("start game\n");
+	game = new_game();
+	game.setup();
 
-	game_t game = new_game();
+	while (game.running) {
+		game.process_input();
+		game.update();
+		game.render();
+	}
+
+	game.cleanup();
 
 	return 0;
-}
-
-void setup(void) {
-
-}
-
-void process_input(void) {
-
-}
-
-void update(void) {
-
-}
-
-void render(void) {
-
 }

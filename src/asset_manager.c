@@ -1,5 +1,4 @@
 #include "asset_manager.h"
-#include <stdio.h>
 
 void asset_manager_clear_data(void) {
 
