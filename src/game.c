@@ -18,6 +18,8 @@ game_t new_game() {
 			.window_width = 800,
 			.window_height = 600,
 			.flags = SDL_WINDOW_BORDERLESS, // | SDL_WINDOW_FULLSCREEN_DESKTOP
+			.debug = true,
+
 			.setup = game_setup,
 			.process_input = game_process_input,
 			.update = game_update,
@@ -48,7 +50,7 @@ void game_process_input(void) {
 }
 
 void game_update(void) {
-	//game.entity_manager.update();
+	game.entity_manager.update();
 }
 
 void game_render(void) {
@@ -58,7 +60,7 @@ void game_render(void) {
 	SDL_RenderClear(game.renderer);
 
 	// Renderer entities.
-	//game.entity_manager.render();
+	game.entity_manager.render();
 
 	// Swap back buffer
 	SDL_RenderPresent(game.renderer);

@@ -2,10 +2,12 @@
 #define PLATFORMER_ENTITY_MANAGER_H
 
 typedef struct {
-	void (* test)(void);
+	void (* update)(void);
+	void (* render)(void);
 } entity_manager_t;
 
 entity_manager_t new_entity_manager(void);
-void entity_manager_test(void);
+void entity_manager_update(void);
+void entity_manager_render(void);
 
 #endif //PLATFORMER_ENTITY_MANAGER_H

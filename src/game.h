@@ -15,6 +15,7 @@ typedef struct {
 	int window_width;
 	int window_height;
 	uint32_t flags;
+	bool debug;
 
 	void (* setup)(void);
 	void (* process_input)(void);
