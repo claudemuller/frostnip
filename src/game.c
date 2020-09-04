@@ -74,13 +74,16 @@ void game_update(void) {
 	if (time_to_wait > 0 && time_to_wait <= FRAME_TARGET_TIME) {
 		SDL_Delay(time_to_wait);
 	}
-	game.last_frame_time = SDL_GetTicks();
 	if (DEBUG) {
 		printf("FPS: %d\n", game.get_fps());
 	}
 	// Difference in ticks from last frame converted to seconds.
 	// delta_time becomes a factor that changes "..moves pixels per frame" to "..moves pixels per second"
 	float delta_time = (float)(SDL_GetTicks() - game.last_frame_time) / 1000.0f;
+	// Clamp deltaTime to a maximum value
+	delta_time = delta_time > 0.05f ? 0.05f : delta_time;
+	// Sets the new ticks fo the current frame to be used in the next pass
+	game.last_frame_time = SDL_GetTicks();
 
 	game.entity_manager.update(delta_time);
 }

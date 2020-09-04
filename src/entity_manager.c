@@ -11,8 +11,8 @@ void entity_manager_update(float delta_time) {
 	for (int i = 0; i < 1; i++) {
 		// TODO: doesn't move :(
 		SDL_Rect* rect = &game.entity_manager.entities[i];
-		rect->x += 0.1 * delta_time;
-		rect->y += 0.1 * delta_time;
+		rect->x += 10 * 1;//delta_time;
+		rect->y += 10 * 1;//delta_time;
 	}
 }
 
