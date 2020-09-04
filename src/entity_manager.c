@@ -9,10 +9,9 @@ void entity_manager_update(float delta_time) {
 	}
 
 	for (int i = 0; i < 1; i++) {
-		// TODO: doesn't move :(
-		SDL_Rect* rect = &game.entity_manager.entities[i];
-		rect->x += 10 * 1;//delta_time;
-		rect->y += 10 * 1;//delta_time;
+		SDL_Rect *rect = &game.entity_manager.entities[i];
+		rect->x += 100 * delta_time;
+		rect->y += 100 * delta_time;
 	}
 }
 
@@ -23,11 +22,11 @@ void entity_manager_render(void) {
 
 	SDL_SetRenderDrawColor(game.renderer, 255, 255, 255, 255);
 	for (int i = 0; i < 1; i++) {
-		SDL_Rect *rect = &game.entity_manager.entities[i];
-		if (true) {
-			printf("entity: x - %d, y - %d, w - %d, h - %d\n", rect->x, rect->y, rect->w, rect->h);
+		SDL_Rect rect = game.entity_manager.entities[i];
+		if (DEBUG) {
+			printf("entity: x - %d, y - %d, w - %d, h - %d\n", rect.x, rect.y, rect.w, rect.h);
 		}
-		SDL_RenderFillRect(game.renderer, rect);
+		SDL_RenderFillRect(game.renderer, &rect);
 	}
 }
 
