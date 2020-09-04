@@ -11,6 +11,7 @@ typedef struct {
 	void (* process_input)(void);
 	void (* update)(void);
 	void (* render)(void);
+	int (* get_fps)(void);
 	void (* cleanup)(void);
 
 	SDL_Renderer* renderer;
@@ -20,6 +21,8 @@ typedef struct {
 	int window_height;
 	uint32_t flags;
 	bool debug;
+	int last_frame_time;
+	int waited_for;
 	asset_manager_t asset_manager;
 	entity_manager_t entity_manager;
 } game_t;
@@ -31,6 +34,7 @@ void game_setup(void);
 void game_process_input(void);
 void game_update(void);
 void game_render(void);
+int game_get_fps(void);
 void game_cleanup(void);
 
 #endif //PLATFORMER_GAME_H

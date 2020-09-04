@@ -2,6 +2,7 @@
 #include "asset_manager.h"
 #include "entity_manager.h"
 #include "display.h"
+#include "constants.h"
 
 game_t game;
 
@@ -15,15 +16,17 @@ game_t new_game() {
 			.renderer = NULL,
 			.window = NULL,
 			.running = true,
-			.window_width = 800,
-			.window_height = 600,
+			.window_width = WINDOW_WIDTH,
+			.window_height = WINDOW_HEIGHT,
 			.flags = SDL_WINDOW_BORDERLESS, // | SDL_WINDOW_FULLSCREEN_DESKTOP
-			.debug = true,
+			.last_frame_time = 0,
+			.waited_for = 0,
 
 			.setup = game_setup,
 			.process_input = game_process_input,
 			.update = game_update,
 			.render = game_render,
+			.get_fps = game_get_fps,
 			.cleanup = game_cleanup
 	};
 }
@@ -59,6 +62,15 @@ void game_process_input(void) {
 }
 
 void game_update(void) {
+	game.waited_for = SDL_GetTicks();
+	// Waste time/sleep until the frame target time is reached.
+	// While A hasn't passed B i.e. the time now hasn't passed the last frame + frame target time.
+	while (!SDL_TICKS_PASSED(SDL_GetTicks(), game.last_frame_time + FRAME_TARGET_TIME));
+	game.last_frame_time = SDL_GetTicks();
+	if (DEBUG) {
+		printf("FPS: %d\n", game.get_fps());
+	}
+
 	game.entity_manager.update();
 }
 
@@ -71,8 +83,12 @@ void game_render(void) {
 	// Renderer entities.
 	game.entity_manager.render();
 
-	// Swap back buffer.
+	// Swap backbuffer.
 	SDL_RenderPresent(game.renderer);
+}
+
+int game_get_fps(void) {
+	return game.last_frame_time - game.waited_for;
 }
 
 void game_cleanup(void) {

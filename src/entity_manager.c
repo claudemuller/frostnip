@@ -1,22 +1,23 @@
 #include <stdio.h>
 #include "entity_manager.h"
+#include "constants.h"
 #include "game.h"
 
 void entity_manager_update(void) {
-	if (game.debug) {
+	if (DEBUG) {
 		printf("updating entities...\n");
 	}
 }
 
 void entity_manager_render(void) {
-	if (game.debug) {
+	if (DEBUG) {
 		printf("rendering entities...\n");
 	}
 
 	SDL_SetRenderDrawColor(game.renderer, 255, 255, 255, 255);
 	for (int i = 0; i < 1; i++) {
 		SDL_Rect rect = game.entity_manager.entities[i];
-		if (game.debug) {
+		if (DEBUG) {
 			printf("entity: x - %d, y - %d, w - %d, h - %d\n", rect.x, rect.y, rect.w, rect.h);
 		}
 		SDL_RenderFillRect(game.renderer, &rect);
