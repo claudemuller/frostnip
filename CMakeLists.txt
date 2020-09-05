@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(frostbyte C)
+project(frostnip C)
 
 set(SOURCE_FILES src/main.c src/constants.h
         src/animation.c src/animation.h
@@ -32,6 +32,6 @@ include_directories(${SDL2_INCLUDE})
 link_directories(${PROJECT_LIB})
 link_directories(${SDL2_LIB})
 
-add_executable(frostbyte ${SOURCE_FILES})
+add_executable(frostnip ${SOURCE_FILES})
 
-target_link_libraries(frostbyte ${SDL2_LIBS})
+target_link_libraries(frostnip ${SDL2_LIBS})

@@ -1,5 +1,5 @@
-#ifndef FROSTBYTE_ANIMATION_H
-#define FROSTBYTE_ANIMATION_H
+#ifndef FROSTNIP_ANIMATION_H
+#define FROSTNIP_ANIMATION_H
 
 typedef struct {
 	unsigned int index;
@@ -9,4 +9,4 @@ typedef struct {
 
 animation_t new_animation(unsigned int index, unsigned int num_frames, unsigned int animation_speed);
 
-#endif //FROSTBYTE_ANIMATION_H
+#endif //FROSTNIP_ANIMATION_H
