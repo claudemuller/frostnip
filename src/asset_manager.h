@@ -1,5 +1,5 @@
-#ifndef PLATFORMER_ASSET_MANAGER_H
-#define PLATFORMER_ASSET_MANAGER_H
+#ifndef FROSTBYTE_ASSET_MANAGER_H
+#define FROSTBYTE_ASSET_MANAGER_H
 
 #include "entity_manager.h"
 
@@ -19,4 +19,4 @@ void asset_manager_clear_data(void);
 //void addFont(std::string fontId, const char* filePath, int fontSize);
 //TTF_Font* getFont(std::string fontId);
 
-#endif //PLATFORMER_ASSET_MANAGER_H
+#endif //FROSTBYTE_ASSET_MANAGER_H

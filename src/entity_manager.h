@@ -1,5 +1,5 @@
-#ifndef PLATFORMER_ENTITY_MANAGER_H
-#define PLATFORMER_ENTITY_MANAGER_H
+#ifndef FROSTBYTE_ENTITY_MANAGER_H
+#define FROSTBYTE_ENTITY_MANAGER_H
 
 #include <SDL2/SDL.h>
 
@@ -16,4 +16,4 @@ void entity_manager_update(float);
 void entity_manager_render(void);
 void entity_manager_add(SDL_Rect entity);
 
-#endif //PLATFORMER_ENTITY_MANAGER_H
+#endif //FROSTBYTE_ENTITY_MANAGER_H

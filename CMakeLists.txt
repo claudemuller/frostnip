@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(platformer C)
+project(frostbyte C)
 
 set(SOURCE_FILES src/main.c src/constants.h
         src/animation.c src/animation.h
@@ -32,6 +32,6 @@ include_directories(${SDL2_INCLUDE})
 link_directories(${PROJECT_LIB})
 link_directories(${SDL2_LIB})
 
-add_executable(platformer ${SOURCE_FILES})
+add_executable(frostbyte ${SOURCE_FILES})
 
-target_link_libraries(platformer ${SDL2_LIBS})
+target_link_libraries(frostbyte ${SDL2_LIBS})
