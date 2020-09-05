@@ -1,2 +1,2 @@
 # Frostnip
-Frostnip is a 2D Game Engine written in C with SDL2
+Frostnip is a 2D game engine written in C with SDL2
