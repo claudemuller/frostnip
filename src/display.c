@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include "display.h"
 
-bool init_window(game_t *game) {
+bool init_window(game_t* game) {
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
 		fprintf(stderr, "An error occurred: %s\n", SDL_GetError());
 		return false;

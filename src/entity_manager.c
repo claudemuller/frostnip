@@ -9,7 +9,7 @@ void entity_manager_update(float delta_time) {
 	}
 
 	for (int i = 0; i < 1; i++) {
-		SDL_Rect *rect = &game.entity_manager.entities[i];
+		SDL_Rect* rect = &game.entity_manager.entities[i];
 		rect->x += 100 * delta_time;
 		rect->y += 100 * delta_time;
 	}
@@ -35,10 +35,10 @@ void entity_manager_add(SDL_Rect entity) {
 }
 
 entity_manager_t new_entity_manager(void) {
-	return (entity_manager_t) {
-		.update = entity_manager_update,
-		.render = entity_manager_render,
-		.add = entity_manager_add
+	return (entity_manager_t){
+			.update = entity_manager_update,
+			.render = entity_manager_render,
+			.add = entity_manager_add
 	};
 }
 

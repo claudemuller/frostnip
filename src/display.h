@@ -4,6 +4,6 @@
 #include <stdbool.h>
 #include "game.h"
 
-bool init_window(game_t *game);
+bool init_window(game_t* game);
 
 #endif //FROSTNIP_DISPLAY_H
