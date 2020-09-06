@@ -27,6 +27,8 @@ game_t new_game() {
 void setup(void) {
 	init_window();
 
+	//load_level(1);
+
 	// Add entities.
 	SDL_Rect rect = {
 			.x = 100,
@@ -47,6 +49,18 @@ void process_input(void) {
 		case SDL_KEYDOWN:
 			if (event.key.keysym.sym == SDLK_ESCAPE) {
 				game.running = false;
+			}
+			if (event.key.keysym.sym == SDLK_a) {
+				game.player.vel.x = -1;
+			}
+			if (event.key.keysym.sym == SDLK_d) {
+				game.player.vel.x = 1;
+			}
+			if (event.key.keysym.sym == SDLK_w) {
+				game.player.vel.y = -1;
+			}
+			if (event.key.keysym.sym == SDLK_s) {
+				game.player.vel.y = 1;
 			}
 			break;
 		default:

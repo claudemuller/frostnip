@@ -8,7 +8,7 @@ set(SOURCE_FILES src/main.c src/constants.h
         src/game.c src/game.h
         src/display.c src/display.h
         src/vector.c src/vector.h
-        src/utils/benchmark.c src/utils/benchmark.h)
+        src/utils/benchmark.c src/utils/benchmark.h src/entity.c src/entity.h src/layer_type.c src/layer_type.h)
 set(CMAKE_C_STANDARD 99)
 
 set(SDL2_ROOT    "D:/libs/sdl2")
