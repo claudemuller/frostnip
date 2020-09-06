@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "./lib/stretchy_buffer.h"
 #include "entity_manager.h"
 #include "constants.h"
 #include "game.h"
@@ -8,10 +9,8 @@ void entity_manager_update(float delta_time) {
 		printf("updating entities...\n");
 	}
 
-	for (int i = 0; i < 1; i++) {
-		SDL_Rect* rect = &game.entity_manager.entities[i];
-		rect->x += game.player.vel.x * 100 * delta_time;
-		rect->y += game.player.vel.y * 100 * delta_time;
+	for (int i = 0; i < sb_count(game.entity_manager.entities); i++) {
+		game.entity_manager.entities[i].update();
 	}
 }
 
@@ -21,17 +20,13 @@ void entity_manager_render(void) {
 	}
 
 	SDL_SetRenderDrawColor(game.renderer, 255, 255, 255, 255);
-	for (int i = 0; i < 1; i++) {
-		SDL_Rect rect = game.entity_manager.entities[i];
-		if (DEBUG) {
-			printf("entity: x - %d, y - %d, w - %d, h - %d\n", rect.x, rect.y, rect.w, rect.h);
-		}
-		SDL_RenderFillRect(game.renderer, &rect);
+	for (int i = 0; i < sb_count(game.entity_manager.entities); i++) {
+		game.entity_manager.entities[i].update();
 	}
 }
 
-void entity_manager_add(SDL_Rect entity) {
-	game.entity_manager.entities[0] = entity;
+void entity_manager_add(entity_t entity) {
+	sb_push(game.entity_manager.entities, entity);
 }
 
 entity_manager_t new_entity_manager(void) {

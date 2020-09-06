@@ -30,13 +30,12 @@ void setup(void) {
 	//load_level(1);
 
 	// Add entities.
-	SDL_Rect rect = {
-			.x = 100,
-			.y = 100,
-			.w = 200,
-			.h = 200,
-	};
-	game.entity_manager.add(rect);
+	layer_type_t l = {};
+	entity_t player = new_entity(&(entity_desc) {
+		.name = "player",
+		.layer = l
+	});
+	game.entity_manager.add(player);
 }
 
 void process_input(void) {
@@ -49,18 +48,6 @@ void process_input(void) {
 		case SDL_KEYDOWN:
 			if (event.key.keysym.sym == SDLK_ESCAPE) {
 				game.running = false;
-			}
-			if (event.key.keysym.sym == SDLK_a) {
-				game.player.vel.x = -1;
-			}
-			if (event.key.keysym.sym == SDLK_d) {
-				game.player.vel.x = 1;
-			}
-			if (event.key.keysym.sym == SDLK_w) {
-				game.player.vel.y = -1;
-			}
-			if (event.key.keysym.sym == SDLK_s) {
-				game.player.vel.y = 1;
 			}
 			break;
 		default:
