@@ -20,19 +20,12 @@ game_t new_game() {
 			.window_height = WINDOW_HEIGHT,
 			.flags = SDL_WINDOW_BORDERLESS, // | SDL_WINDOW_FULLSCREEN_DESKTOP
 			.last_frame_time = 0,
-			.waited_for = 0,
-
-			.setup = game_setup,
-			.process_input = game_process_input,
-			.update = game_update,
-			.render = game_render,
-			.get_fps = game_get_fps,
-			.cleanup = game_cleanup
+			.waited_for = 0
 	};
 }
 
-void game_setup(void) {
-	init_window(&game);
+void setup(void) {
+	init_window();
 
 	// Add entities.
 	SDL_Rect rect = {
@@ -44,7 +37,7 @@ void game_setup(void) {
 	game.entity_manager.add(rect);
 }
 
-void game_process_input(void) {
+void process_input(void) {
 	SDL_Event event;
 	SDL_PollEvent(&event);
 	switch (event.type) {
@@ -61,7 +54,7 @@ void game_process_input(void) {
 	}
 }
 
-void game_update(void) {
+void update(void) {
 	game.waited_for = SDL_GetTicks();
 	// Waste time/sleep until the frame target time is reached.
 	// While A hasn't passed B i.e. the time now hasn't passed the last frame + frame target time.
@@ -75,7 +68,7 @@ void game_update(void) {
 		SDL_Delay(time_to_wait);
 	}
 	if (DEBUG) {
-		printf("FPS: %d\n", game.get_fps());
+		printf("FPS: %d\n", get_fps());
 	}
 	// Difference in ticks from last frame converted to seconds.
 	// delta_time becomes a factor that changes "..moves pixels per frame" to "..moves pixels per second"
@@ -88,7 +81,7 @@ void game_update(void) {
 	game.entity_manager.update(delta_time);
 }
 
-void game_render(void) {
+void render(void) {
 	// Set colour.
 	SDL_SetRenderDrawColor(game.renderer, 0, 0, 0, 255);
 	// Clear renderer.
@@ -101,11 +94,11 @@ void game_render(void) {
 	SDL_RenderPresent(game.renderer);
 }
 
-int game_get_fps(void) {
+int get_fps(void) {
 	return game.last_frame_time - game.waited_for;
 }
 
-void game_cleanup(void) {
+void cleanup(void) {
 	SDL_DestroyWindow(game.window);
 	SDL_DestroyRenderer(game.renderer);
 	SDL_Quit();

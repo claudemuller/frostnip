@@ -2,15 +2,15 @@
 
 int main(int argc, char* argv[]) {
 	game = new_game();
-	game.setup();
+	setup();
 
 	while (game.running) {
-		game.process_input();
-		game.update();
-		game.render();
+		process_input();
+		update();
+		render();
 	}
 
-	game.cleanup();
+	cleanup();
 
 	return 0;
 }
