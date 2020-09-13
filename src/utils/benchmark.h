@@ -1,5 +1,5 @@
-#ifndef INC_FROSTNIP_BENCHMARK_H
-#define INC_FROSTNIP_BENCHMARK_H
+#ifndef INC_FROSTBIT_BENCHMARK_H
+#define INC_FROSTBIT_BENCHMARK_H
 
 #include <stdint.h>
 
@@ -14,4 +14,4 @@ void start_bench(int bench);
 void stop_bench(int bench);
 void print_bench(void);
 
-#endif //INC_FROSTNIP_BENCHMARK_H
+#endif //INC_FROSTBIT_BENCHMARK_H

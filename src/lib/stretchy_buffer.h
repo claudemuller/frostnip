@@ -40,7 +40,7 @@
 //
 //    stretchy_buffer.h does not define any types, so you do not
 //    need to #include it to before defining data types that are
-//    stretchy buffers, only in files that *manipulate* stretchy
+//    stretchy buffers, only in files that *maBITulate* stretchy
 //    buffers.
 //
 //    If you want a stretchy buffer aka dynamic array containing

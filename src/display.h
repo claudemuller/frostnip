@@ -1,5 +1,5 @@
-#ifndef FROSTNIP_DISPLAY_H
-#define FROSTNIP_DISPLAY_H
+#ifndef FROSTBIT_DISPLAY_H
+#define FROSTBIT_DISPLAY_H
 
 #include <stdbool.h>
 #include "game.h"
@@ -12,4 +12,4 @@
 
 bool init_window();
 
-#endif //FROSTNIP_DISPLAY_H
+#endif //FROSTBIT_DISPLAY_H

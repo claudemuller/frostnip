@@ -1,5 +1,5 @@
-#ifndef FROSTNIP_COMPONENT_H
-#define FROSTNIP_COMPONENT_H
+#ifndef FROSTBIT_COMPONENT_H
+#define FROSTBIT_COMPONENT_H
 
 typedef struct {
 	void (* init)(void);
@@ -20,4 +20,4 @@ void component_init(void);
 void component_update(void);
 void component_render(void);
 
-#endif //FROSTNIP_COMPONENT_H
+#endif //FROSTBIT_COMPONENT_H

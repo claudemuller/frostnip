@@ -1,5 +1,5 @@
-#ifndef FROSTNIP_ENTITY_H
-#define FROSTNIP_ENTITY_H
+#ifndef FROSTBIT_ENTITY_H
+#define FROSTBIT_ENTITY_H
 
 #include <stdbool.h>
 #include "component.h"
@@ -37,4 +37,4 @@ void entity_add_component(component_t c);
 void entity_get_component(void);
 void entity_has_component(void);
 
-#endif //FROSTNIP_ENTITY_H
+#endif //FROSTBIT_ENTITY_H

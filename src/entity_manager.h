@@ -1,5 +1,5 @@
-#ifndef FROSTNIP_ENTITY_MANAGER_H
-#define FROSTNIP_ENTITY_MANAGER_H
+#ifndef FROSTBIT_ENTITY_MANAGER_H
+#define FROSTBIT_ENTITY_MANAGER_H
 
 #include <SDL2/SDL.h>
 #include "entity.h"
@@ -17,4 +17,4 @@ void entity_manager_update(float);
 void entity_manager_render(void);
 void entity_manager_add(entity_t entity);
 
-#endif //FROSTNIP_ENTITY_MANAGER_H
+#endif //FROSTBIT_ENTITY_MANAGER_H

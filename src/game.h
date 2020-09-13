@@ -1,5 +1,5 @@
-#ifndef FROSTNIP_GAME_H
-#define FROSTNIP_GAME_H
+#ifndef FROSTBIT_GAME_H
+#define FROSTBIT_GAME_H
 
 #include <stdbool.h>
 #include <SDL2/SDL.h>
@@ -30,4 +30,4 @@ void render(void);
 int get_fps(void);
 void cleanup(void);
 
-#endif //FROSTNIP_GAME_H
+#endif //FROSTBIT_GAME_H
